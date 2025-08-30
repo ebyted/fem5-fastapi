@@ -41,7 +41,9 @@ def dialogo():
         print(f"Respuesta generada por el modelo: {texto}")
         return jsonify({"respuesta": texto})
     except Exception as e:
+        import traceback
         print(f"Error en /dialogo: {e}")
+        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/dialogo-sagrado/', methods=['POST'])
